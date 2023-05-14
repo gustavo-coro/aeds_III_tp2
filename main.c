@@ -77,6 +77,7 @@ int main (int argc, char **argv) {
 
     fclose(inFile);
     fclose(outFile);
+    free(solution);
 
     return 0;
 }
