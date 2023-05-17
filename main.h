@@ -9,5 +9,6 @@
 
 #include "ler_arquivo.h"
 #include "grid.h"
+#include "gridFB.h"
 
 #endif

@@ -115,3 +115,50 @@ void readFileDP (FILE* inFile, FILE* outFile) {
     }
     free(line);
 }
+
+void readFileFB (FILE* inFile, FILE* outFile) {
+    char *line = NULL;
+    int casosTeste;
+    //ler a primeira linha com o numero de casos de teste
+    if ((line = readLine(inFile)) != NULL) {
+        sscanf(line, "%d", &casosTeste);
+    }
+    for (int contLine = 0; contLine < casosTeste; contLine++) {
+        int linhas, colunas;
+        //ler o numero de linhas e colunas
+        if ((line = readLine(inFile)) != NULL) {
+            sscanf(line, "%d %d", &linhas, &colunas);
+        }
+        //tabela usada para guardar o grid
+        tabelaFB* tab = criaTabelaFB(linhas, colunas);
+        //lendo os valores do grid
+        for (int i = 0; i < linhas; i++) {
+            if ((line = readLine(inFile)) != NULL) {
+                int num;
+                int j = 0;
+                char *proxNum = strtok(line, " ");
+                while(proxNum != NULL) {
+                    sscanf(proxNum, "%d", &num);
+                    tab->celulas[i][j].peso = num;
+                    j++;
+                    proxNum = strtok(NULL, " ");
+                }
+            }
+        }
+        //calculando a energia que ele vai gastar
+        int resultado = 0;
+        int min = INT_MAX;
+        calculaMinimoFB(tab, 0, 0, resultado, min);
+        resultado = tab->energiaMinima;
+        //verificando se mesmo com vida zero ele nao ficaria negativo
+        //nesse caso ele deve comecar com 1
+        if (resultado > 0) {
+            fprintf(outFile, "%d\n", 1);
+        } else {
+            fprintf(outFile, "%d\n", (resultado * (-1)) + 1);
+        }
+        //libera o espaco alocado para a tabela
+        freeTabelaFB(tab);
+    }
+    free(line);
+}

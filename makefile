@@ -1,9 +1,9 @@
 all: main
 
-main: main.o ler_arquivo.o grid.o
-	gcc -o tp2 main.o ler_arquivo.o grid.o
+main: main.o ler_arquivo.o grid.o gridFB.o
+	gcc -o tp2 main.o ler_arquivo.o grid.o gridFB.o
 
-main.o: main.c ler_arquivo.c grid.c
+main.o: main.c ler_arquivo.c grid.c gridFB.c
 	gcc -o main.o main.c -c -W -Wall -ansi -pedantic -std=c99
 
 ler_arquivo.o: ler_arquivo.c ler_arquivo.h
@@ -11,6 +11,9 @@ ler_arquivo.o: ler_arquivo.c ler_arquivo.h
 
 grid.o: grid.c grid.h
 	gcc -o grid.o grid.c -c -W -Wall -ansi -pedantic -std=c99
+
+gridFB.o: gridFB.c gridFB.h
+	gcc -o gridFB.o gridFB.c -c -W -Wall -ansi -pedantic -std=c99
 
 clean:
 	rm -rf *.o *~ tp2
