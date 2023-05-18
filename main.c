@@ -40,7 +40,7 @@ int main (int argc, char **argv) {
     switch (*solution) {
       case '1':
         //chamadas de funcao para a primeira solucao
-        readFileDP (inFile, outFile);
+        readFilePD (inFile, outFile);
         break;
 
       case '2':

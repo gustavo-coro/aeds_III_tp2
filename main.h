@@ -8,7 +8,7 @@
 #include <limits.h>
 
 #include "ler_arquivo.h"
-#include "grid.h"
+#include "gridPD.h"
 #include "gridFB.h"
 
 #endif

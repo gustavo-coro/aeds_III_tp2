@@ -55,7 +55,7 @@ int openFile (int argc, char **argv, FILE **in, char *solution, FILE **out) {
 }
 
 //resolucao com programacao dinamica
-void readFileDP (FILE* inFile, FILE* outFile) {
+void readFilePD (FILE* inFile, FILE* outFile) {
     char *line = NULL;
     int casosTeste;
     //ler a primeira linha com o numero de casos de teste
@@ -87,28 +87,8 @@ void readFileDP (FILE* inFile, FILE* outFile) {
             }
         }
         //calculando o caminho que ele deve utilizar
-        achaCaminhoDP(matriz, tab);
-        int i = 0;
-        int j = 0;
-        int soma = 0; //variavel que guarda a soma de energia durante o caminho
-        int min = INT_MAX; //variavel que guarda o ponto do caminho com menor energia
-        while((i <= (linhas-1)) && (j <= (colunas-1))) {
-            soma += matriz[i][j];
-            if (soma < min) {
-                min = soma;
-            }
-            int iTemp = tab->celulas[i][j].posicaoProx[0];
-            int jTemp = tab->celulas[i][j].posicaoProx[1];
-            i = iTemp;
-            j = jTemp;
-        }
-        //verificando se mesmo com vida zero ele nao ficaria negativo
-        //nesse caso ele deve comecar com 1
-        if (min > 0) {
-            fprintf(outFile, "%d\n", 1);
-        } else {
-            fprintf(outFile, "%d\n", (min*-1) + 1);
-        }
+        achaCaminhoPD(matriz, tab);
+        fprintf(outFile, "%d\n", tab->celulas[0][0].peso);
         //libera o espaco alocado para a matriz e a tabela
         freeMatriz(matriz, linhas);
         freeTabela(tab);

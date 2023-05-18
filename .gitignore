@@ -54,3 +54,4 @@ dkms.conf
 # Executable and .vscode folder
 *.vscode
 tp2
+data
