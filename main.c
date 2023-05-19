@@ -39,12 +39,12 @@ int main (int argc, char **argv) {
 
     switch (*solution) {
       case '1':
-        //chamadas de funcao para a primeira solucao
+        //chamadas de funcao para a primeira solucao com Programacao Dinamica
         readFilePD (inFile, outFile);
         break;
 
       case '2':
-        //chamadas de funcao para a segunda solucao
+        //chamadas de funcao para a segunda solucao com um Forca Bruta
         readFileFB (inFile, outFile);
         break;
       
@@ -61,20 +61,20 @@ int main (int argc, char **argv) {
 
     double tempoUsuario = (double) usage.ru_utime.tv_sec * 1000000 + usage.ru_utime.tv_usec;
     double tempoSistema = (double) usage.ru_stime.tv_sec * 1000000 + usage.ru_stime.tv_usec;
-    double tempoEntradaSaida = (double) ((tempoDiferenca.tv_sec * 1000000) + tempoDiferenca.tv_usec);
-    double tempoTotal = tempoUsuario + tempoSistema;
+    double tempoGetTimeofDay = (double) ((tempoDiferenca.tv_sec * 1000000) + tempoDiferenca.tv_usec);
+    double tempoRuUsage = tempoUsuario + tempoSistema;
 
     printf("Tempo em microssegunods:\n");
     printf("Tempo Usuario = %.3f microssegundos\n", tempoUsuario);
     printf("Tempo Sistema = %.3f microssegundos\n", tempoSistema);
-    printf("Tempo Total = %.3f microssegundos\n", tempoTotal);
-    printf("Tempo Entrada Saida = %.3f microssegundos\n", tempoEntradaSaida);
+    printf("Tempo rusage = %.3f microssegundos\n", tempoRuUsage);
+    printf("Tempo gettimeofday = %.3f microssegundos\n", tempoGetTimeofDay);
 
     printf("\nTempo em segundos:\n");
     printf("Tempo Usuario = %.3f segundos\n", tempoUsuario / 1000000);
     printf("Tempo Sistema = %.3f segundos\n", tempoSistema / 1000000);
-    printf("Tempo Total = %.3f segundos\n", tempoTotal / 1000000);
-    printf("Tempo Entrada Saida = %.3f segundos\n", tempoEntradaSaida / 1000000);
+    printf("Tempo rusage = %.3f segundos\n", tempoRuUsage / 1000000);
+    printf("Tempo gettimeofday = %.3f segundos\n", tempoGetTimeofDay / 1000000);
 
     fclose(inFile);
     fclose(outFile);

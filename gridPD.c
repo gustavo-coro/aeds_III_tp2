@@ -39,16 +39,6 @@ void freeMatriz(int** matriz, int linhas) {
 }
 
 void achaCaminhoPD(int** tabuleiro,tabela* tab) {
-    //verificando o caso da matriz ser de dimensoes 1x1
-    if ((tab->i == 0) && (tab->j == 0)) {
-        int valorCelula = tabuleiro[0][0];
-        if (valorCelula >= 0) {
-            tab->celulas[0][0].peso = 1;
-        } else {
-            tab->celulas[0][0].peso = (valorCelula * -1) + 1;
-        }
-        return;
-    }
     //saber quanto de energia e necessario para chegar na ultima celula
     if (tabuleiro[tab->i][tab->j] >= 0) {
         tab->celulas[tab->i][tab->j].peso = 1;

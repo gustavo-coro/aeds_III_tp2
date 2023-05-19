@@ -49,4 +49,3 @@ void calculaMinimoFB(tabelaFB* tab, int iInicio, int jInicio, int soma, int min)
         calculaMinimoFB(tab, iInicio, jInicio+1, somaAux, min);
     }
 }
-
