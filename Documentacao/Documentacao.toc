@@ -1,0 +1,12 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {section}{\numberline {1}INTRODUÇÃO}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Proposta}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Objetivo}{1}{}%
+\contentsline {section}{\numberline {2}IMPLEMENTAÇÃO}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Força bruta}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Complexidade da solução por força bruta}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Programação dinâmica}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Complexidade da solução por programação dinâmica}{5}{}%
+\contentsline {section}{\numberline {3}AVALIAÇÃO DE RESULTADOS}{6}{}%
+\contentsline {section}{\numberline {4}CONCLUSÃO}{9}{}%
+\contentsline {section}{REFERÊNCIAS}{10}{}%
